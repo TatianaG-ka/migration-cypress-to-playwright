@@ -1,9 +1,14 @@
 {
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.46.0",
+    "@types/node": "^22.2.0",
     "cypress": "^13.13.2"
   },
   "scripts": {
     "cy:open": "cypress open"
+  },
+  "dependencies": {
+    "playwright": "^1.46.0"
   }
 }

@@ -39,3 +39,16 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.env
+tmp/*
+!tmp/.gitkeep
