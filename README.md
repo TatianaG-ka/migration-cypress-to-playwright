@@ -73,8 +73,7 @@ The exact cost of migration depends on the size of the test suite, the complexit
 > When migrating from Cypress to Playwright, it's crucial to carefully consider the key steps and decisions to ensure a successful transition.
 
 ## Migration Steps 
-![image](levels)
-
+![levels](https://github.com/user-attachments/assets/4cf0aa18-df0d-42dd-aa1e-89b3996a8cd4)
 
 > Cutoff - all new tests are written in Playwright
 
