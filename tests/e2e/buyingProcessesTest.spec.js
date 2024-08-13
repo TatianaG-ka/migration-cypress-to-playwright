@@ -16,13 +16,15 @@ test.describe("Verify buying processes - products from home page", () => {
     const loginPage = new LoginPage(page);
     const homePage = new HomePage(page);
     const checkoutPage = new CheckoutPage(page);
-    await page.goto("");
 
-    // Act
+    await page.goto("");
     await loginPage.loginUser();
     await homePage.clearCart(); 
+
+    // Act
     await homePage.addProductToCart();
 
+    //Assert
     await expect(homePage.successMessageAddedToCartActual).toHaveText(
       successMessageAddedToCartExpected
     );
@@ -32,7 +34,6 @@ test.describe("Verify buying processes - products from home page", () => {
     await expect(homePage.cartWithProduct).toContainText(productData.product);
     await homePage.checkout.first().click();
 
-    // Act
     await checkoutPage.enterBillingAddress();
     await checkoutPage.selectPaymentMethods();
 

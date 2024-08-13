@@ -9,16 +9,19 @@ export class HomePage {
     viewCart: () => cy.get("#cart button"),
     clearCart: () => cy.get("button[title='Remove']"),
     checkout: () => cy.contains("Checkout"),
+    removeButton: () => cy.get("button[title='Remove']"),
+    successMessageAddedToCartActual: () =>
+      cy.get("div.alert.alert-success.alert-dismissible"),
+    cartWithProduct: () => cy.get("#cart").contains(data.product),
   };
 
   clearCart() {
-    this.webLocators.cart().then((value) => {
-      const cartValue = value.text();
-      if (cartValue !== "0 item(s) - $0.00") {
-        this.webLocators.cart().click();
-        this.webLocators.clearCart().first().click({ force: true });
-      }
-    });
+    this.webLocators.cart().click();
+    if (this.webLocators.removeButton().should("be.visible")) {
+      this.webLocators.removeButton().click();
+    } else {
+      console.log("Cart is already empty.");
+    }
   }
 
   addProductToCart() {
@@ -28,14 +31,8 @@ export class HomePage {
     this.webLocators.addToCartButton().click();
   }
 
-  verifyCartPopup() {
-    // Ensure the dropdown is visible
-    this.webLocators.viewCart().trigger("mouseover").click();
-    cy.contains(data.product, { timeout: 10000 }).should("be.visible");
-  }
-
-  clickOnCheckout() {
-    this.webLocators.checkout().click();
+  clickOnCartAndPopupDisplays() {
+    this.webLocators.cart().click();
   }
 }
 

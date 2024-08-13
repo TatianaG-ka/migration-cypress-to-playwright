@@ -19,17 +19,7 @@ export class CheckoutPage {
   };
 
   enterBillingAddress() {
-    if (this.webLocators.loggedIn().should("be.checked")) {
-      this.webLocators.continue().click();
-    } else {
-      this.webLocators.firstName().type(data.firstName);
-      this.webLocators.lastName().type(data.lastName);
-      this.webLocators.address().type(data.address1);
-      this.webLocators.city().type(data.city);
-      this.webLocators.country();
-      this.webLocators.region();
-      this.webLocators.continue().click();
-    }
+    this.webLocators.continue().click();
   }
 
   selectPaymentMethods() {

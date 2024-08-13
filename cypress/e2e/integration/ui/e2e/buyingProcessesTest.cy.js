@@ -7,27 +7,29 @@ describe("Verify buying processes - products from home page", () => {
   it("Add a product and confirm a failed payment process", () => {
     // Arrange
     const warningMessage = "Warning: Payment method required!×";
-    const successMessageAddedToCart = `Success: You have added ${data.product} to your shopping cart!`;
+    const successMessageAddedToCartExpected = `Success: You have added ${data.product} to your shopping cart! ×`;
+
     cy.openHomePage();
     loginPage.loginUser();
-    homePage.clearCart(); // Ensure cart is empty before starting the test
+    homePage.clearCart();
 
     // Act
     homePage.addProductToCart();
 
     // Assert
-    cy.get("div.alert.alert-success.alert-dismissible")
-      .should("contain", successMessageAddedToCart)
+    cy.get(homePage.webLocators.successMessageAddedToCartActual)
+      .should("contain", successMessageAddedToCartExpected)
       .and("contain", data.product);
 
-    homePage.verifyCartPopup();
+    //Act
+    homePage.clickOnCartAndPopupDisplays();
+    cy.get(homePage.webLocators.cartWithProduct).should("contain.text", data.product);
 
-    // Act
-    homePage.clickOnCheckout();
+    homePage.webLocators.checkout().first().click();
     checkoutPage.enterBillingAddress();
     checkoutPage.selectPaymentMethods();
 
-    // Assert for order completion
+    // Assert
     checkoutPage.webLocators
       .alertMessage({ timeout: 10000 })
       .should("have.text", warningMessage);

@@ -1,10 +1,10 @@
 {
-  "firstName": "TestName",
-  "lastName": "TestLastName",
-  "email": "test@test.pl",
-  "address1": "Sunshine",
-  "city": "Warsaw",
-  "postcode": "00-101",
-  "country": "Poland",
-  "region/State": "Mazowieckie"
+  "firstName": "",
+  "lastName": "",
+  "email": "",
+  "address1": "",
+  "city": "",
+  "postcode": "",
+  "country": "",
+  "region/State": ""
 }
