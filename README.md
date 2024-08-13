@@ -1,11 +1,13 @@
 <h1 align="center">Migration from Cypress to Playwright 👋</h1>
 
-This repository contains test cases for both Cypress and Playwright, allowing you to run tests using the same project.
+This repository contains test cases for both Cypress and Playwright, enabling you to run tests within the same project.
+
+With my prior experience in Playwright, migrating a simple project from Cypress was a straightforward process. The transition involved adapting tests, but the challenges were minimal. The migration enhanced test performance and reaffirmed Playwright's strengths, making it a clear choice for future projects.
 
 
 ## Usage
 
-I've encountered two similar tools that rewrite my Cypress code to its equivalent in Playwright.
+Two tools are available that can automatically convert Cypress code to its Playwright equivalent.
 The first of these tools is https://demo.playwright.dev/cy2pw/, and the second one GPT4.
 
 > **Warning**
@@ -13,7 +15,7 @@ The first of these tools is https://demo.playwright.dev/cy2pw/, and the second o
 > Migration is not perfect, therefore you will have to make modifications in the new code
 
 Side note: if you have a GitHub Copilot license you can also prompt your Copilot to migrate a test or file for you. 
-Using Copilot, the migration process becomes faster and smoother, reducing manual effort and errors. Copilot’s AI-driven suggestions help bridge the gap between the two testing frameworks efficiently.
+Using Copilot can make the migration process faster and smoother, reducing manual effort and minimizing errors. Copilot’s AI-driven suggestions help bridge the gap between the two testing frameworks efficiently.
 
 ## Running Tests
 
@@ -41,7 +43,7 @@ npm run playwright-test-headless
 npm run playwright-test-ui
 ```
 
-## Test Cases Location
+## Cypress and Playwright Folder Locations:
 
 - Cypress test cases are located in the folder `cypress/e2e`.
 - Playwright test cases are located in the folder `src/ and tests/`.
@@ -58,7 +60,6 @@ npm install
 
 ## From Cypress to Playwright - cost, migration steps, timeline and AI tools 
 
-But what about the existing projects that are already using Cypress? Many teams are intrigued by Playwright, but their testing suite is already written in Cypress. The transition seems scary and expensive - the costs include:
 
 Rewriting the "tests infrastructure": 
 - Custom commands, shared utilities like authentication, and generation of test data
@@ -67,21 +68,17 @@ Rewriting the "tests infrastructure":
 - Rewriting the existing tests
 - Training the team on the new framework and concepts
 
-The exact cost of migration depends on the size of the test suite, the complexity of the application, the team's experience and the available resources.
+The exact cost of migration depends on the size of the test suite, the complexity of the application, the team's experience, and the available resources.
 
-
-> **Warning**
-> 
-> When migrating from Cypress to Playwright, it's important to carefully consider the key steps and decisions involved in the process
+> When migrating from Cypress to Playwright, it's crucial to carefully consider the key steps and decisions to ensure a successful transition.
 
 ## Migration Steps 
 ![image](levels)
 
-> **Warning**
-> 
+
 > Cutoff - all new tests are written in Playwright
 
-### !!!! Step 1: Set Up the testing infrastructure
+### Step 1: Set Up the testing infrastructure
 
 Key tasks during this phase include:
 
@@ -92,9 +89,9 @@ Refactoring custom commands and integrations to align with Playwright.
 
 ### Step 2: Write new tests in Playwright, migrate high-value tests
 
-**Approach 1: Single team handling migration and/or New Tests**
+**Approach 1: Single team handling migration and New Tests**
 
- This team is responsible for both gradually migrating existing tests to Playwright (**migrate high value tests first**) and/or writing new tests, including integrating them into the CI pipeline. The team should focus on improving the testing infrastructure to make the transition smoother.
+ This team is responsible for both gradually migrating existing tests to Playwright (**migrate high value tests first**) and writing new tests, including integrating them into the CI pipeline. The team should focus on improving the testing infrastructure to make the transition smoother.
 
 **Approach 2: Two teams with separate responsibilities**
 
@@ -108,6 +105,8 @@ As your Playwright test suite grows, it's crucial to optimize your CI/CD pipelin
 
  During this phase, ensure that the CI/CD pipeline is configured to run both the existing Cypress tests and the new Playwright tests. This dual setup might temporarily increase the complexity of your pipeline, but it's necessary for a smooth transition. Gradually, as more tests are migrated, you can phase out Cypress, simplifying the CI/CD process. This step is vital for maintaining continuous integration and delivery efficiency during the migration process, ensuring that the testing process remains reliable and scalable as your Playwright test suite evolves.
 
+## Conclusion
+Migrating from Cypress to Playwright is a significant decision that requires careful planning and execution. While the transition may seem daunting, especially for established projects with extensive Cypress test suites, the benefits of Playwright’s robust features and improved performance can be well worth the effort. By following a structured approach—starting with setting up the infrastructure, strategically migrating high-value tests, and gradually phasing out Cypress—you can ensure a smooth and efficient transition. Leveraging tools like GitHub Copilot and utilizing automated conversion tools can further streamline the process. Remember, the key to a successful migration lies in thorough preparation, continuous learning, and a willingness to adapt to the new framework. With the right strategy in place, your team can confidently embrace Playwright and unlock new possibilities in automated testing.
 
 ## Resources
 - https://timdeschryver.dev/bits/cypress-to-playwright-converters
